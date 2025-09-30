@@ -32,7 +32,7 @@ def generate_bot_response(user_input_text: str, doc: spacy.tokens.doc.Doc, detec
     if "hello" in user_input_text.lower() or \
             "hi" in user_input_text.lower() or \
             "hoi" in user_input_text.lower() or \
-            "hallo" in user_input_text.lower():
+            "hallo" in user_input_text.lower(): #kjdgfkjndskjgfdlkgmfdlkgmlk
         response_en += "Hello there! Welcome! Who's there?'<br/>"
         response_nl+="Hallo daar! Welkom! Wie is daar?'<br/>"
 
