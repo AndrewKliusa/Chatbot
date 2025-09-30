@@ -1,10 +1,11 @@
 # response_logic.py
 from http.client import responses
+import json
 from idlelib.rpc import response_queue
 
 import spacy # Imported for type hinting purposes
 
-def generate_bot_response(user_input_text: str, doc: spacy.tokens.doc.Doc, detected_lang: str) -> tuple[str, str]:
+def generate_bot_response(user_input_text: str, doc: spacy.tokens.doc.Doc, detected_lang: str) -> tuple[str, str]: # type: ignore
     """
     Generates a chatbot response based on user input and SpaCy analysis.
     Students will add their custom rules and responses within this function.
@@ -32,7 +33,7 @@ def generate_bot_response(user_input_text: str, doc: spacy.tokens.doc.Doc, detec
     if "hello" in user_input_text.lower() or \
             "hi" in user_input_text.lower() or \
             "hoi" in user_input_text.lower() or \
-            "hallo" in user_input_text.lower(): #kjdgfkjndskjgfdlkgmfdlkgmlk
+            "hallo" in user_input_text.lower(): 
         response_en += "Hello there! Welcome! Who's there?'<br/>"
         response_nl+="Hallo daar! Welkom! Wie is daar?'<br/>"
 
@@ -46,10 +47,17 @@ def generate_bot_response(user_input_text: str, doc: spacy.tokens.doc.Doc, detec
 
     # --- Student Zone ---
 
-    if "thank you" in user_input_text.lower() or \
-            "dank je wel" in user_input_text.lower():
-        response_en += "It's a pleasure<br/>"
-        response_nl+="Alsjeblieft<br/>"
+    with open('chat_responses.json', 'r') as file:
+        responses = json.load(file)
+
+    input = user_input_text.lower()
+    triggers = list(responses.keys())
+
+    for trigger in triggers:
+        print(trigger, input)
+        if trigger.lower() in input:
+            response_en += f"{responses[f"{trigger}"]["english"]}<br/>"
+            response_nl += f"{responses[f"{trigger}"]["dutch"]}<br/>"
 
     # --- End of Student's Zone ---
 
