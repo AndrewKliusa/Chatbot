@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Talking Doorbell</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="chat-container">
+    <h1>The Talking Doorbell</h1>
+    <div class="language-selector">
+        <label for="input-lang">Input Language:</label>
+        <select id="input-lang">
+            <option value="en">English</option>
+            <option value="nl">Nederlands</option>
+        </select>
+    </div>
+    <div class="chat-log" id="chat-log">
+        <div class="message bot-message">
+            <span class="lang-en">Ding-dong! Welcome to the Doorbell! What can I help you with?</span><br>
+            <span class="lang-nl">Ding-dong! Welkom bij de Deurbel! Waarmee kan ik je helpen?</span>
+        </div>
+    </div>
+    <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Type your message here...">
+        <button id="send-button">Send</button>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

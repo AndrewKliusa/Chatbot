@@ -1,0 +1,119 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F8FFF8; /* Very light green/off-white for background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+.chat-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+h1 {
+    background-color: #008000; /* Primary Saxion Green */
+    color: white;
+    padding: 15px;
+    margin: 0;
+    text-align: center;
+    font-size: 1.8em;
+}
+
+.language-selector {
+    padding: 10px 15px;
+    background-color: #e6ffe6; /* Lighter green for selector background */
+    border-bottom: 1px solid #d0ffd0;
+    text-align: center;
+}
+
+.language-selector label {
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.language-selector select {
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: 1px solid #90EE90; /* Light green border */
+}
+
+
+.chat-log {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 500px; /* Limit chat log height */
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #eee;
+}
+
+.message {
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    border-radius: 18px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.user-message {
+    background-color: #D8F5DB; /* Soft green for user messages */
+    align-self: flex-end; /* Align to the right */
+    margin-left: auto; /* Push to the right */
+}
+
+.bot-message {
+    background-color: #E6F5EA; /* Very light green for bot messages */
+    align-self: flex-start; /* Align to the left */
+    margin-right: auto; /* Push to the left */
+}
+
+.lang-en {
+    font-weight: bold;
+    color: #006400; /* Darker green for English text */
+}
+
+.lang-nl {
+    font-style: italic;
+    color: #3CB371; /* Medium sea green for Dutch text */
+}
+
+.chat-input {
+    display: flex;
+    padding: 15px;
+    background-color: #eee;
+    border-top: 1px solid #ddd;
+}
+
+.chat-input input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 1em;
+}
+
+.chat-input button {
+    background-color: #008000; /* Primary Saxion Green for button */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.chat-input button:hover {
+    background-color: #006600; /* Slightly darker green on hover */
+}
