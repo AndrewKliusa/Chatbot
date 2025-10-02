@@ -122,9 +122,21 @@ def generate_bot_response(user_input_text: str, doc: spacy.tokens.doc.Doc, detec
          response_en += "Goodnight. sleep well!! '<br/>"
          response_nl+="Welterusten. Slaap lekker!<br/>"
 
+    with open('chat_responses.json', 'r') as file:
+        responses = json.load(file)
+
+    input = user_input_text.lower()
+    triggers = list(responses.keys())
+
+    for trigger in triggers:
+        if trigger.split('/')[0].lower() in input or trigger.split('/')[1].lower():
+            response_en += f"{responses[f"{trigger}"]["english"]}<br/>"
+            response_nl += f"{responses[f"{trigger}"]["dutch"]}<br/>"
+
     # --- End of Student's Zone ---
 
     # If none of the above rules match, return the default response.
 
     return response_en, response_nl
+
 
