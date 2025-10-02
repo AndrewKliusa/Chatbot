@@ -51,7 +51,7 @@ def generate_bot_response(user_input_text: str, doc: spacy.tokens.doc.Doc, detec
         response_en += "It's a pleasure<br/>"
         response_nl+="Alsjeblieft<br/>"
 
-     if "dog" in user_input_text.lower() or "hond" in user_input_text.lower():
+    if "dog" in user_input_text.lower() or "hond" in user_input_text.lower():
         response_en += "Dogs are such loyal animals!<br/>"
         response_nl += "Honden zijn zulke trouwe dieren!<br/>"
 
