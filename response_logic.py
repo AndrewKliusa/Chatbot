@@ -97,8 +97,34 @@ def generate_bot_response(user_input_text: str, doc: spacy.tokens.doc.Doc, detec
         response_en+= "SIR YES SIR!"
         response_nl+= "MENEER JA MENEER"
 
+    
+    # Response Example 3: Example Simple Commands (works for both English and Dutch greetings) *
+    if "open the door" in user_input_text.lower() or \
+            "come here" in user_input_text.lower():
+        response_en += "If I had legs, I'd already be on my way<br/>"
+        response_nl+="Als ik benen had, zou ik al onderweg zijn<br/>"
+
+        # Response Example 3: Example Simple Greeting (works for both English and Dutch greetings) *
+
+        if "Morning" in user_input_text.lower():
+            response_en += "Good morning! Hope you having a great day'<br/>"
+            response_nl+="Goedemorgen! Ik hoop dat je een fijne dag hebt.'<br/>"
+
+        if "Afternoon" in user_input_text.lower():
+            response_en += "Good Afternoon! I Hope it's been a good one for you'<br/>"
+            response_nl+="Goedemiddag! Ik hoop dat het een fijne middag voor je was.'<br/>"
+
+        if "Evening" in user_input_text.lower():
+            response_en += "Good evening! I hope your day went well.'<br/>"
+            response_nl+="Goedenavond! Ik hoop dat je een goede dag hebt gehad.'<br/>"
+
+        if "Nacht" in user_input_text.lower():
+         response_en += "Goodnight. sleep well!! '<br/>"
+         response_nl+="Welterusten. Slaap lekker!<br/>"
+
     # --- End of Student's Zone ---
 
     # If none of the above rules match, return the default response.
 
     return response_en, response_nl
+
