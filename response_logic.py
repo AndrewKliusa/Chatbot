@@ -67,7 +67,38 @@ def generate_bot_response(user_input_text: str, doc: spacy.tokens.doc.Doc, detec
         response_en += "A house is a cozy place to feel at home.<br/>"
         response_nl += "Een huis is een gezellige plek om je thuis te voelen.<br/>"
 
+    if "yes" in user_input_text.lower() or \
+            "yeah" in user_input_text.lower() or \
+                "ja" in user_input_text.lower():
+        response_en+= f"Great to hear!<br/>"
+        response_nl+= f"Goed om te horen!<br/>"
+
+    if "no" in user_input_text.lower() or \
+            "nope" in user_input_text.lower() or \
+                "nee" in user_input_text.lower():
+        response_en+=f"Why not?<br/>"
+        response_nl+=f"Waarom niet?<br/>"
+
+    if "please" in user_input_text.lower() or \
+            "alstublieft" in user_input_text.lower() or \
+                "asjeblieft" in user_input_text.lower():
+        response_en+=f"With pleasure!<br/>"
+        response_nl+=f"Met plezier!<br/>"
+
+    if "could" in user_input_text.lower() or \
+            "can" in user_input_text.lower() or \
+                "would" in user_input_text.lower() or \
+                    "zou kunnen" in user_input_text.lower() or \
+                        "zou" in user_input_text.lower():
+        response_en+= f"Sure!, I could help with '{token.text}'.<br/>"
+        response_nl+= f"Zeker! Ik kan helpen met '{token.text}'.<br/>"
+
+    if "!" and token.text in user_input_text.lower():
+        response_en+= "SIR YES SIR!"
+        response_nl+= "MENEER JA MENEER"
+
     # --- End of Student's Zone ---
 
     # If none of the above rules match, return the default response.
+
     return response_en, response_nl
