@@ -1,11 +1,10 @@
 # response_logic.py
 from http.client import responses
-import json
 from idlelib.rpc import response_queue
 
 import spacy # Imported for type hinting purposes
 
-def generate_bot_response(user_input_text: str, doc: spacy.tokens.doc.Doc, detected_lang: str) -> tuple[str, str]: # type: ignore
+def generate_bot_response(user_input_text: str, doc: spacy.tokens.doc.Doc, detected_lang: str) -> tuple[str, str]:
     """
     Generates a chatbot response based on user input and SpaCy analysis.
     Students will add their custom rules and responses within this function.
@@ -33,7 +32,7 @@ def generate_bot_response(user_input_text: str, doc: spacy.tokens.doc.Doc, detec
     if "hello" in user_input_text.lower() or \
             "hi" in user_input_text.lower() or \
             "hoi" in user_input_text.lower() or \
-            "hallo" in user_input_text.lower(): 
+            "hallo" in user_input_text.lower():
         response_en += "Hello there! Welcome! Who's there?'<br/>"
         response_nl+="Hallo daar! Welkom! Wie is daar?'<br/>"
 
@@ -47,17 +46,26 @@ def generate_bot_response(user_input_text: str, doc: spacy.tokens.doc.Doc, detec
 
     # --- Student Zone ---
 
-    with open('chat_responses.json', 'r') as file:
-        responses = json.load(file)
+    if "thank you" in user_input_text.lower() or \
+            "dank je wel" in user_input_text.lower():
+        response_en += "It's a pleasure<br/>"
+        response_nl+="Alsjeblieft<br/>"
 
-    input = user_input_text.lower()
-    triggers = list(responses.keys())
+     if "dog" in user_input_text.lower() or "hond" in user_input_text.lower():
+        response_en += "Dogs are such loyal animals!<br/>"
+        response_nl += "Honden zijn zulke trouwe dieren!<br/>"
 
-    for trigger in triggers:
-        print(trigger, input)
-        if trigger.lower() in input:
-            response_en += f"{responses[f"{trigger}"]["english"]}<br/>"
-            response_nl += f"{responses[f"{trigger}"]["dutch"]}<br/>"
+    if "cat" in user_input_text.lower() or "kat" in user_input_text.lower():
+        response_en += "Cats can be very independent and playful.<br/>"
+        response_nl += "Katten kunnen erg onafhankelijk en speels zijn.<br/>"
+
+    if "car" in user_input_text.lower() or "auto" in user_input_text.lower():
+        response_en += "Cars make life so much easier for travel.<br/>"
+        response_nl += "Auto's maken het reizen zoveel makkelijker.<br/>"
+
+    if "house" in user_input_text.lower() or "huis" in user_input_text.lower():
+        response_en += "A house is a cozy place to feel at home.<br/>"
+        response_nl += "Een huis is een gezellige plek om je thuis te voelen.<br/>"
 
     # --- End of Student's Zone ---
 
