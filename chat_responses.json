@@ -1,0 +1,26 @@
+{
+    "Bye/doei": {
+        "english": "Bye bye!",
+        "dutch": "Tot ziens!"
+    }, 
+    "Goodbye/tot ziens": {
+        "english": "Goodbye! See you.",
+        "dutch": "Vaarwel! Tot snel."
+    },
+    "Good/mooi": {
+        "english": "This is super good!",
+        "dutch": "Dit is supergoed!"
+    },
+    "Bad/lelijk": {
+        "english": "Ahhh, this is bad.",
+        "dutch": "Ahhh, dit is lelijk"
+    },
+    "Open the door!/Open de deur!": {
+        "english": "Yes sir! At once.",
+        "dutch": "Jazeker! Direct."
+    },
+    "Come here!/Kom hier!": {
+        "english": "I'm coming!",
+        "dutch": "Ik kom!"
+    }
+}
